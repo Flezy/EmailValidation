@@ -28,21 +28,28 @@ using System.ComponentModel.DataAnnotations;
 
 namespace EmailValidation
 {
-	[AttributeUsage (AttributeTargets.Property | AttributeTargets.Field, AllowMultiple = false)]
-	public sealed class EmailAttribute : ValidationAttribute
-	{
-		public EmailAttribute (bool allowTopLevelDomains = false, bool allowInternational = false)
+    [AttributeUsage(AttributeTargets.Property | AttributeTargets.Field, AllowMultiple = false)]
+    public sealed class EmailAttribute : ValidationAttribute
+    {
+        public EmailAttribute() : this(false, false) { }
+
+        public EmailAttribute(bool allowTopLevelDomains) : this(allowTopLevelDomains, false) { }
+
+        public EmailAttribute (bool allowTopLevelDomains, bool allowInternational)
 		{
 			AllowTopLevelDomains = allowTopLevelDomains;
 			AllowInternational = allowInternational;
 		}
 
-		public bool AllowTopLevelDomains { get; set; }
+		public bool AllowTopLevelDomains { get; }
 
-		public bool AllowInternational { get; set; }
+		public bool AllowInternational { get; }
 
 		protected override ValidationResult IsValid (object value, ValidationContext validationContext)
 		{
+            if (validationContext == null || validationContext.MemberName == null)
+                throw new ArgumentException("Context or the MemberName is null");
+
 			var memberNames = new string[] { validationContext.MemberName };
 
 			if (value == null)

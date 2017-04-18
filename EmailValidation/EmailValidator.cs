@@ -239,24 +239,27 @@ namespace EmailValidation
 			return compact ? colons < 7 : colons == 7;
 		}
 
-		/// <summary>
-		/// Validate the specified email address.
-		/// </summary>
-		/// <remarks>
-		/// <para>Validates the syntax of an email address.</para>
-		/// <para>If <paramref name="allowTopLevelDomains"/> is <c>true</c>, then the validator will
-		/// allow addresses with top-level domains like <c>postmaster@dk</c>.</para>
-		/// <para>If <paramref name="allowInternational"/> is <c>true</c>, then the validator
-		/// will use the newer International Email standards for validating the email address.</para>
-		/// </remarks>
-		/// <returns><c>true</c> if the email address is valid; otherwise, <c>false</c>.</returns>
-		/// <param name="email">An email address.</param>
-		/// <param name="allowTopLevelDomains"><c>true</c> if the validator should allow addresses at top-level domains; otherwise, <c>false</c>.</param>
-		/// <param name="allowInternational"><c>true</c> if the validator should allow international characters; otherwise, <c>false</c>.</param>
-		/// <exception cref="System.ArgumentNullException">
-		/// <paramref name="email"/> is <c>null</c>.
-		/// </exception>
-		public static bool Validate (string email, bool allowTopLevelDomains = false, bool allowInternational = false)
+        public static bool Validate(string email) => Validate(email, false, false);
+        public static bool Validate(string email, bool allowTopLevelDomains) => Validate(email, allowTopLevelDomains, false);
+
+        /// <summary>
+        /// Validate the specified email address.
+        /// </summary>
+        /// <remarks>
+        /// <para>Validates the syntax of an email address.</para>
+        /// <para>If <paramref name="allowTopLevelDomains"/> is <c>true</c>, then the validator will
+        /// allow addresses with top-level domains like <c>postmaster@dk</c>.</para>
+        /// <para>If <paramref name="allowInternational"/> is <c>true</c>, then the validator
+        /// will use the newer International Email standards for validating the email address.</para>
+        /// </remarks>
+        /// <returns><c>true</c> if the email address is valid; otherwise, <c>false</c>.</returns>
+        /// <param name="email">An email address.</param>
+        /// <param name="allowTopLevelDomains"><c>true</c> if the validator should allow addresses at top-level domains; otherwise, <c>false</c>.</param>
+        /// <param name="allowInternational"><c>true</c> if the validator should allow international characters; otherwise, <c>false</c>.</param>
+        /// <exception cref="System.ArgumentNullException">
+        /// <paramref name="email"/> is <c>null</c>.
+        /// </exception>
+        public static bool Validate (string email, bool allowTopLevelDomains, bool allowInternational)
 		{
 			int index = 0;
 
@@ -301,7 +304,7 @@ namespace EmailValidation
 				return false;
 
 			var ipv6 = email.Substring (index, 5);
-			if (ipv6.ToLowerInvariant () == "ipv6:") {
+			if (ipv6.ToUpperInvariant() == "IPV6:") {
 				index += "IPv6:".Length;
 				if (!SkipIPv6Literal (email, ref index))
 					return false;
