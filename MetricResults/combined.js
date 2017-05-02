@@ -314,8 +314,8 @@ var assemblies = [
   {
     "name" : "EmailValidation",
     "classes" : [
-    {  "name" : "EmailValidation.EmailAttribute", "reportPath" : "EmailValidation_EmailAttribute.htm", "coveredLines" : 16, "uncoveredLines" : 3, "coverableLines" : 19, "totalLines" : 64, "coverageType" : "LineCoverage", "methodCoverage" : "-", "coveredBranches" : 4, "totalBranches" : 6, "lineCoverageHistory" : [], "branchCoverageHistory" : [] },
-    {  "name" : "EmailValidation.EmailValidator", "reportPath" : "EmailValidation_EmailValidator.htm", "coveredLines" : 154, "uncoveredLines" : 10, "coverableLines" : 164, "totalLines" : 322, "coverageType" : "LineCoverage", "methodCoverage" : "-", "coveredBranches" : 95, "totalBranches" : 106, "lineCoverageHistory" : [], "branchCoverageHistory" : [] },
+    {  "name" : "EmailValidation.EmailAttribute", "reportPath" : "EmailValidation_EmailAttribute.htm", "coveredLines" : 17, "uncoveredLines" : 2, "coverableLines" : 19, "totalLines" : 64, "coverageType" : "LineCoverage", "methodCoverage" : "-", "coveredBranches" : 4, "totalBranches" : 6, "lineCoverageHistory" : [], "branchCoverageHistory" : [] },
+    {  "name" : "EmailValidation.EmailValidator", "reportPath" : "EmailValidation_EmailValidator.htm", "coveredLines" : 155, "uncoveredLines" : 9, "coverableLines" : 164, "totalLines" : 322, "coverageType" : "LineCoverage", "methodCoverage" : "-", "coveredBranches" : 96, "totalBranches" : 106, "lineCoverageHistory" : [], "branchCoverageHistory" : [] },
   ]},
   {
     "name" : "Portable.DataAnnotations",
@@ -338,7 +338,7 @@ var assemblies = [
   {
     "name" : "UnitTests",
     "classes" : [
-    {  "name" : "UnitTests.Test", "reportPath" : "UnitTests_Test.htm", "coveredLines" : 155, "uncoveredLines" : 0, "coverableLines" : 155, "totalLines" : 235, "coverageType" : "LineCoverage", "methodCoverage" : "-", "coveredBranches" : 6, "totalBranches" : 6, "lineCoverageHistory" : [], "branchCoverageHistory" : [] },
+    {  "name" : "UnitTests.Test", "reportPath" : "UnitTests_Test.htm", "coveredLines" : 166, "uncoveredLines" : 0, "coverableLines" : 166, "totalLines" : 259, "coverageType" : "LineCoverage", "methodCoverage" : "-", "coveredBranches" : 6, "totalBranches" : 6, "lineCoverageHistory" : [], "branchCoverageHistory" : [] },
   ]},
 ];
 

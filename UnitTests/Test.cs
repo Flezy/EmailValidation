@@ -212,13 +212,37 @@ namespace UnitTests
 			}
 		}
 
-		bool AreAttributesValid (object target)
+        [Test]
+        public void TestWithoutAllowingAcceptance()
+        {
+            var target = new EmailWithoutAllowingAnything();
+            target.Email = "somebody@email.com";
+
+            Assert.IsTrue(AreAttributesValid(target), "Validating an email without any rights.");
+        }
+
+        [Test]
+        public void TestWithoutAllowingDecline()
+        {
+            var target = new EmailWithoutAllowingAnything();
+            target.Email = "some.user.incompany@email";
+
+            Assert.IsFalse(AreAttributesValid(target), "Validating an email without any rights.");
+        }
+
+        bool AreAttributesValid (object target)
 		{
 			var context = new ValidationContext (target, null, null);
 			var results = new List<ValidationResult> ();
 
 			return Validator.TryValidateObject (target, context, results, true);
 		}
+
+        public class EmailWithoutAllowingAnything
+        {
+            [Email]
+            public string Email { get; set; }
+        }
 
 		public class EmailValidationTarget
 		{
