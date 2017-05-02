@@ -220,13 +220,13 @@ namespace UnitTests
 			return Validator.TryValidateObject (target, context, results, true);
 		}
 
-		class EmailValidationTarget
+		public class EmailValidationTarget
 		{
 			[Email (true)]
 			public string Email { get; set; }
 		}
 
-		class InternationalEmailValidationTarget
+		public class InternationalEmailValidationTarget
 		{
 			[Email (true, true)]
 			public string Email { get; set; }
