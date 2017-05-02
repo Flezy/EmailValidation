@@ -229,6 +229,16 @@ namespace UnitTests
 
             Assert.IsFalse(AreAttributesValid(target), "Validating an email without any rights.");
         }
+        
+
+        [Test]
+        public void TestInValidateInternational()
+        {
+            for(int i = 0; i < ValidInternationalAddresses.Length; i++)
+            {
+                Assert.IsFalse(EmailValidator.Validate(ValidInternationalAddresses[i]), $"InValid Address {ValidInternationalAddresses[i]}");
+            }
+        }
 
         bool AreAttributesValid (object target)
 		{
