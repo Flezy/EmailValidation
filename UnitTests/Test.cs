@@ -249,6 +249,16 @@ namespace UnitTests
             }
         }
 
+        [Test]
+        public void TestEnoughCharacterOfIPV4()
+        {
+            var target = new InternationalEmailValidationTarget();
+            
+            target.Email = "exmple@[127.0.1]";
+
+            Assert.IsFalse(AreAttributesValid(target), "IPV4 address has not enogh character.");
+        }
+
         bool AreAttributesValid (object target)
 		{
 			var context = new ValidationContext (target, null, null);
