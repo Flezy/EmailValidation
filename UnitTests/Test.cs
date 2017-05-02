@@ -163,7 +163,16 @@ namespace UnitTests
 				Assert.IsFalse (EmailValidator.Validate (InvalidAddresses[i], true), "Invalid Address #{0}: {1}", i, InvalidAddresses[i]);
 		}
 
-		[Test]
+        [Test]
+        public void TestNullAddresses()
+        {
+            var target = new InternationalEmailValidationTarget();
+            target.Email = null;
+
+            Assert.IsFalse(AreAttributesValid(target), "Email can't be null");
+        }
+
+        [Test]
 		public void TestValidInternationalAddresses ()
 		{
 			for (int i = 0; i < ValidInternationalAddresses.Length; i++)
